@@ -1,0 +1,15 @@
+.simple-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.simple-column {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.test {
+  background-color: pink;
+  margin-bottom: 10px;
+}
