@@ -2,15 +2,46 @@ const createNode = DOMHandler.createNode
 const append = DOMHandler.append
 
 class Custom {
-  constructor({ link, element = 'authors' }) {
+  constructor({ link: {
+      category,
+      comments,
+      created_at: createdAt,
+      meta: {
+        author,
+        title,
+        url,
+      },
+      upvotes,
+    },
+    index: id,
+    element = 'authors'
+  }) {
+    this.category = category,
+    this.comments = comments,
+    this.createdAt = createdAt,
+    this.author = author,
+    this.title = title,
+    this.url = url,
+    this.upVotes = upvotes,
     this.element = document.getElementById(element)
-    this.link = link
+    this.id = id
   }
 
-  static upVoteButton() {
-    let span = createNode('span')
-    span.innerHTML = '^'
-    return span
+  createUpVoteButton() {
+    let button = createNode('button')
+    button.id = `vote-${this.id}`
+    button.innerHTML = '^'
+    button.addEventListener("click", () => this.voteUp())
+    return button
+  }
+
+  voteUp() {
+    let { upVotes, id } = this,
+        element = document.querySelector(`#vote-${id}-span`)
+    upVotes += 1
+    this.upVotes = upVotes
+
+    element.innerHTML = upVotes
   }
 
   initializeComponent() {
@@ -27,25 +58,29 @@ class Custom {
     let span = createNode('span'),
         container = createNode('div')
 
-    span.innerHTML = this.link.upvotes
+    span.innerHTML = this.upVotes
+    span.id = `vote-${this.id}-span`
     container.classList.add('simple-column')
 
-    append(container, Custom.upVoteButton())
+    append(container, this.createUpVoteButton())
     append(container, span)
     append(parent, container)
   }
 
   bodyComponent(parent) {
-    const { meta: { url, title }} = this.link
+    const { url, title } = this,
+          footer = this.footerComponent()
+
     let spanSite = createNode('span'),
         spanTitle = createNode('span'),
         container = createNode('div')
 
-    const footer = this.footerComponent()
 
     spanSite.innerHTML = url
     spanTitle.innerHTML = title
+
     container.classList.add('simple-column')
+
     append(container, spanSite)
     append(container, spanTitle)
     append(container, footer)
@@ -53,7 +88,7 @@ class Custom {
   }
 
   footerComponent() {
-    const { category, comments, created_at: time, meta: { author }} = this.link
+    const { category, comments, createdAt, author } = this
 
     let spanCategory = createNode('span'),
         spanName = createNode('span'),
@@ -61,9 +96,11 @@ class Custom {
         spanComments = createNode('comments'),
         container = createNode('div')
 
+    container.classList.add('tempFooter')
+
     spanCategory.innerHTML = category
     spanName.innerHTML = author
-    spanTime.innerHTML = time
+    spanTime.innerHTML = createdAt
     spanComments.innerHTML = comments
 
     append(container, spanCategory)
@@ -77,10 +114,4 @@ class Custom {
 
 console.log(links)
 
-links.map(link => {
-  const x = new Custom({ link })
-  x.initializeComponent()
-  return x
-})
-const custom = new Custom({ link: links[0]})
-custom.initializeComponent()
+links.map((link, index) => new Custom({ link, index }).initializeComponent())

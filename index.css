@@ -1,15 +1,23 @@
 .simple-row {
   display: flex;
   flex-direction: row;
+  margin: 0 10px;
 }
 
 .simple-column {
   display: flex;
   flex-direction: column;
+  margin: 5px 10px;
 }
 
 
 .test {
   background-color: pink;
   margin-bottom: 10px;
+}
+
+.tempFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
