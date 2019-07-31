@@ -25,6 +25,8 @@ class ListItem {
     this.upVotes = upvotes,
     this.element = document.getElementById(element)
     this.id = id
+
+    this.initializeComponent()
   }
 
   createUpVoteButton() {
