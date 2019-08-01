@@ -113,7 +113,7 @@ class ListItem {
 
     spanCategory.innerHTML = category
     spanName.innerHTML = author
-    spanTime.innerHTML = createdAt
+    spanTime.innerHTML = normalizeDate(createdAt)
     spanComments.innerHTML = comments
 
     appendAll(container, [
