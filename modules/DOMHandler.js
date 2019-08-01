@@ -4,6 +4,10 @@ class DOMHandler {
   }
 
   static append(parent, el) {
-    return parent.appendChild(el)
+    parent.appendChild(el)
+  }
+
+  static appendAll(parent, elements) {
+    elements.forEach(el => parent.appendChild(el))
   }
 }

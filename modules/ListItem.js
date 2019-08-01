@@ -1,5 +1,6 @@
 const createNode = DOMHandler.createNode
 const append = DOMHandler.append
+const appendAll = DOMHandler.appendAll
 
 class ListItem {
   constructor({ link: {
@@ -64,8 +65,10 @@ class ListItem {
     span.id = `vote-${this.id}-span`
     container.classList.add('simple-column')
 
-    append(container, this.createUpVoteButton())
-    append(container, span)
+    appendAll(container, [
+      this.createUpVoteButton(),
+      span,
+    ])
     append(parent, container)
   }
 
@@ -83,9 +86,11 @@ class ListItem {
 
     container.classList.add('simple-column')
 
-    append(container, spanSite)
-    append(container, spanTitle)
-    append(container, footer)
+    appendAll(container, [
+      spanSite,
+      spanTitle,
+      footer,
+    ])
     append(parent, container)
   }
 
