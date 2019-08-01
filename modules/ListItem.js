@@ -38,6 +38,11 @@ class ListItem {
     return button
   }
 
+  static showElement(id, value = true ) {
+    const display = (value ? 'flex' : 'none')
+    document.getElementById(`list-item-${id}`).style.display = display
+  }
+
   voteUp() {
     let { upVotes, id } = this,
         element = document.querySelector(`#vote-${id}-span`)
@@ -49,6 +54,7 @@ class ListItem {
 
   initializeComponent() {
     let li = createNode('li')
+    li.id = `list-item-${this.id}`
     li.classList.add('simple-row')
 
     this.voteComponent(li)
@@ -110,11 +116,18 @@ class ListItem {
     spanTime.innerHTML = createdAt
     spanComments.innerHTML = comments
 
-    append(container, spanCategory)
-    append(container, spanName)
-    append(container, spanTime)
-    append(container, spanComments)
+    appendAll(container, [
+      spanCategory,
+      spanName,
+      spanTime,
+      spanComments
+    ])
 
     return container
+  }
+
+  toString(){
+    const { category, comments, createdAt, author, title, url, upVotes, } = this
+    return category.concat(` ${comments} ${author} ${title} ${url} ${upVotes}`).toLowerCase()
   }
 }
