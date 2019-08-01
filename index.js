@@ -1,3 +1,3 @@
 console.log(links)
 
-new Posts({ links })
+document.addEventListener('DOMContentLoaded', new Posts({ links }))
