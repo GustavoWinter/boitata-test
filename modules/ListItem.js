@@ -1,6 +1,8 @@
 const createNode = DOMHandler.createNode
 const append = DOMHandler.append
 const appendAll = DOMHandler.appendAll
+const cloneToEncapsulate = DOMHandler.cloneToEncapsulate
+const cloneAndEncapsulateAll = DOMHandler.cloneAndEncapsulateAll
 
 class ListItem {
   constructor({ link: {

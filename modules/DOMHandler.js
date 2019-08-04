@@ -10,4 +10,15 @@ class DOMHandler {
   static appendAll(parent, elements) {
     elements.forEach(el => parent.appendChild(el))
   }
+
+  static cloneToEncapsulate(original, element, cloneStyle = []) {
+    const clone = original.cloneNode()
+    clone.classList.add(...cloneStyle)
+    append(clone, element)
+    return clone
+  }
+
+  static cloneAndEncapsulateAll(container, elements = [], styles = []) {
+    return elements.map((element, index) => cloneToEncapsulate(container, element, styles[index]))
+  }
 }
