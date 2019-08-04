@@ -1,7 +1,28 @@
+body {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.text {
+  color: black;
+}
+
+.hamburguer {
+  border-radius: 2px;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+.hamburguer-container {
+  padding-left: 15px;
+  border-left: .5px solid #444;
+  margin-left: 5px;
+}
+
 .simple-row {
   display: flex;
   flex-direction: row;
-  margin: 0 10px;
 }
 
 .simple-column {
@@ -10,10 +31,29 @@
   margin: 5px 10px;
 }
 
+.space-centralized {
+  align-items: center;
+  justify-content: space-around;
+}
 
-.test {
-  background-color: pink;
-  margin-bottom: 10px;
+
+.padding-box {
+  padding: 5px 0;
+}
+
+.user-header-container {
+  border-radius: 3px;
+}
+
+.padding-test {
+  padding: 0 16px;
+}
+
+.orange-box {
+  padding: 10px;
+  border-radius: 3px;
+  height: 25px;
+  background-color: orange;
 }
 
 .tempFooter {
@@ -23,11 +63,117 @@
 }
 
 .searchBar {
+  border-radius: 5px;
+  height: 20px;
   background-position: 10px 12px;
   background-repeat: no-repeat;
-  width: 100%;
+  max-width: 20%;
   font-size: 16px;
-  padding: 12px 20px 12px 40px;
+  padding: 5px 10px;
   border: 1px solid #ddd;
-  margin-bottom: 12px;
+}
+
+.loading {
+  grid-area: loading;
+}
+
+.posts-container {
+  grid-area: posts-container;
+}
+
+.header-actions {
+  grid-area: header-actions;
+  place-self: center stretch;
+}
+.header-user-actions {
+  grid-area: header-user-actions;
+}
+
+.footer-links {
+  grid-area: footer-links;
+}
+.footer-infos {
+  grid-area: footer-infos;
+}
+
+.hexagon-label {
+  position: absolute;
+  font-size: 10px;
+  top: 15%;
+  left: 20%;
+}
+
+.space {
+  margin: 40px
+}
+
+.wrapper {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-columns: [empty-space] 20% [start-column] 1fr [end-column] 1fr [empty-space] 20%;
+  grid-template-rows: [header] 80px [post-body] 1fr [loading] 120px[footer] 120px;
+  grid-template-areas:
+   ". header-actions header-actions ."
+   ". posts-container posts-container ."
+   ". loading loading ."
+   ". footer-infos footer-links .";
+  background-color: #444; /*  remove it later */
+  color: #444;
+}
+
+.box {
+  background-color: #fff; /*  remove it later */
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.header {
+  background-color: #999;
+}
+
+.circle {
+  z-index: 10;
+  box-shadow: inset 0 0 0 1px white;
+  position: absolute;
+  top: -10.545px;
+  left: -4px;
+  width: 41px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.hexagon {
+  margin-right: 20px;
+  position: relative;
+  width: 35px;
+  height: 20.21px;
+  background-color: #fa4b00;
+  margin: 10.10px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 17.5px solid transparent;
+  border-right: 17.5px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 10.10px solid #fa4b00;
+
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 10.10px solid #fa4b00;
+  border-radius: 0 0 200px 200px;
+
 }

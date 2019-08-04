@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
   </head>
   <body>
-    <input class="searchBar" type="text" id="search" title="Posts search">
-    <h1>Authors</h1>
-    <ul id="posts"></ul>
+    <div class="wrapper">
+      <div class="box header-actions">
+        <div class="simple-row space-centralized">
+          <div class="hexagon">
+            <div class="circle"></div>
+            <span class="hexagon-label">UX</span>
+          </div>
+          <div class="hamburguer-container">
+            <i class="fa fa-bars hamburguer" style="font-size:15px;color:black"></i>
+          </div>
+          <input class="searchBar" type="text" id="search" title="Posts search">
+          <div class="simple-row user-header-container padding-box">
+            <div class="simple-row orange-box space-centralized">
+              <i class="fa fa-plus" style="font-size:15px;color:white"></i>
+              <span class='padding-test'>Add Post</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="box header-user-actions">Header</div> -->
+      <div class="box posts-container">
+        Content
+        <ul id="posts"></ul>
+      </div>
+      <div class="box loading">loading</div>
+      <div class="box footer-infos">footer-infos</div>
+      <div class="box footer-links">footer-links</div>
+    </div>
+
   </body>
   <script src="modules/DOMHandler.js"></script>
   <script src="modules/ListItem.js"></script>
