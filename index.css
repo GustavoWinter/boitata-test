@@ -56,12 +56,6 @@ body {
   background-color: orange;
 }
 
-.tempFooter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .searchBar {
   border-radius: 5px;
   height: 20px;
@@ -106,6 +100,7 @@ body {
 .space {
   margin: 40px
 }
+
 
 .wrapper {
   display: grid;
@@ -177,6 +172,7 @@ body {
 }
 
 .vote-container {
+  max-height: 60px;
   border-radius: 1px;
   border: 1px solid lightgrey; /* separet */
   display: flex;
@@ -197,4 +193,79 @@ body {
 
 .defaultText {
   font-size: 20px;
+}
+
+.body-post-grid {
+  display: grid;
+  grid-template-rows: [site] 1fr [post] 1fr [info] 1fr;
+  grid-template-areas:
+  "site"
+  "post"
+  "info";
+}
+
+.body-site-grid {
+  grid-area: site;
+}
+
+.body-title-grid {
+  grid-area: post;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.body-footer-grid {
+  grid-area: info;
+  display: flex;
+  flex-direction: row;
+  align-self: end;
+}
+
+.border-padding {
+  border-right: 1px solid lightgrey;
+  padding-right: 2%;
+}
+
+.post-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+}
+
+.text-category {
+  border-radius: 25px;
+  padding: 5px 10px;
+  background-color: red;
+  font-size: 15px;
+  text-align: center;
+}
+
+.info-time-text {
+  white-space:nowrap;
+  font-size: 11px;
+  color: grey;
+  padding-left: 5px;
+}
+
+.info-text {
+  white-space:nowrap;
+  font-size: 15px;
+  text-decoration: underline;
+  padding-left: 5px;
+  color: red;
+}
+
+.default-posts-margin {
+  margin-bottom: 35px;
+}
+
+.bullet {
+  color: grey;
+  padding-left: 5px;
+}
+
+.ballon {
+  color: red;
+  padding-left: 15px;
 }

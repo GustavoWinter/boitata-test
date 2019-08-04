@@ -58,7 +58,7 @@ class ListItem {
   initializeComponent() {
     let li = createNode('li')
     li.id = `list-item-${this.id}`
-    li.classList.add('simple-row', 'text')
+    li.classList.add('simple-row', 'text', 'default-posts-margin')
 
     this.voteComponent(li)
     this.bodyComponent(li)
@@ -89,15 +89,17 @@ class ListItem {
         spanTitle = createNode('span'),
         container = createNode('div')
 
-
     spanSite.innerHTML = url
     spanTitle.innerHTML = title
 
-    container.classList.add('simple-column', 'text')
+    const siteContainer = cloneToEncapsulate(container, spanSite, ['body-site-grid']),
+          titleContainer = cloneToEncapsulate(container, spanTitle, ['body-title-grid'])
+
+    container.classList.add('body-post-grid', 'text')
 
     appendAll(container, [
-      spanSite,
-      spanTitle,
+      siteContainer,
+      titleContainer,
       footer,
     ])
     append(parent, container)
@@ -109,21 +111,54 @@ class ListItem {
     let spanCategory = createNode('span'),
         spanName = createNode('span'),
         spanTime = createNode('span'),
-        spanComments = createNode('comments'),
-        container = createNode('div')
+        spanComments = createNode('span'),
+        spanEdit = createNode('span'),
+        container = createNode('div'),
+        spanBullet = createNode('span'),
+        spanBallon = createNode('i')
 
-    container.classList.add('tempFooter', 'text')
+    spanCategory.classList.add('text-category')
+    spanName.classList.add('info-text')
+    spanTime.classList.add('info-time-text')
+    spanComments.classList.add('info-text')
+    spanEdit.classList.add('info-text')
+    spanBullet.classList.add('bullet')
 
+    spanBallon.style.color = 'red'
+    spanBallon.className  = 'fa fa-comment ballon'
+
+    const defaultStyles = [ 'post-info', 'defaultText']
+    const [
+      containerCategory,
+      containerName,
+      containerTime,
+      containerComments,
+    ] = cloneAndEncapsulateAll(
+      container,
+      [ spanCategory, spanName, spanTime, spanComments ],
+      [
+        [ ...defaultStyles, 'border-padding' ],
+        [ ...defaultStyles ],
+        [ ...defaultStyles ],
+      ]
+    )
+
+    container.classList.add('body-footer-grid', 'text')
     spanCategory.innerHTML = category
     spanName.innerHTML = author
     spanTime.innerHTML = normalizeDate(createdAt)
-    spanComments.innerHTML = comments
+    spanComments.innerHTML = `${comments} comments`
+    spanEdit.innerHTML = 'edit'
+    spanBullet.innerHTML = '&bull;'
 
+    append(containerComments, spanEdit)
     appendAll(container, [
-      spanCategory,
-      spanName,
-      spanTime,
-      spanComments
+      containerCategory,
+      containerName,
+      containerTime,
+      spanBullet,
+      spanBallon,
+      containerComments,
     ])
 
     return container
