@@ -26,14 +26,14 @@ class ListItem {
     this.upVotes = upvotes,
     this.element = document.getElementById(element)
     this.id = id
-
     this.initializeComponent()
   }
 
   createUpVoteButton() {
     let button = createNode('button')
     button.id = `vote-${this.id}`
-    button.innerHTML = '^'
+    button.innerHTML = '<i class="fa fa-chevron-up" style="color:red"></i>'
+    button.classList.add('vote-icon')
     button.addEventListener("click", () => this.voteUp())
     return button
   }
@@ -46,6 +46,7 @@ class ListItem {
   voteUp() {
     let { upVotes, id } = this,
         element = document.querySelector(`#vote-${id}-span`)
+    element.classList.add('defaultText')
     upVotes += 1
     this.upVotes = upVotes
 
@@ -55,7 +56,7 @@ class ListItem {
   initializeComponent() {
     let li = createNode('li')
     li.id = `list-item-${this.id}`
-    li.classList.add('simple-row')
+    li.classList.add('simple-row', 'text')
 
     this.voteComponent(li)
     this.bodyComponent(li)
@@ -69,7 +70,7 @@ class ListItem {
 
     span.innerHTML = this.upVotes
     span.id = `vote-${this.id}-span`
-    container.classList.add('simple-column')
+    container.classList.add('simple-column', 'text', 'vote-container')
 
     appendAll(container, [
       this.createUpVoteButton(),
@@ -90,7 +91,7 @@ class ListItem {
     spanSite.innerHTML = url
     spanTitle.innerHTML = title
 
-    container.classList.add('simple-column')
+    container.classList.add('simple-column', 'text')
 
     appendAll(container, [
       spanSite,
@@ -109,7 +110,7 @@ class ListItem {
         spanComments = createNode('comments'),
         container = createNode('div')
 
-    container.classList.add('tempFooter')
+    container.classList.add('tempFooter', 'text')
 
     spanCategory.innerHTML = category
     spanName.innerHTML = author

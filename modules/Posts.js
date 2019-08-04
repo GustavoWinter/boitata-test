@@ -1,7 +1,6 @@
 class Posts {
   constructor({ links }) {
     this.posts = links.map((link, index) => new ListItem({ link, index }))
-
     document.getElementById('search').addEventListener("keyup", e => this.search(e))
   }
 

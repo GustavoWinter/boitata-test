@@ -167,7 +167,6 @@ body {
 .hexagon:before {
   bottom: 100%;
   border-bottom: 10.10px solid #fa4b00;
-
 }
 
 .hexagon:after {
@@ -175,5 +174,27 @@ body {
   width: 0;
   border-top: 10.10px solid #fa4b00;
   border-radius: 0 0 200px 200px;
+}
 
+.vote-container {
+  border-radius: 1px;
+  border: 1px solid lightgrey; /* separet */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.vote-icon {
+  padding-bottom: 5px;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid lightgrey;  /* separet */
+  width: 100%;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin: 0 8px;
+}
+
+.defaultText {
+  font-size: 20px;
 }
