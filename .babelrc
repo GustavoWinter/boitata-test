@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    "transform-regenerator",
+    ["module-resolver", {
+      "alias": {
+        "assets": "./src/assets",
+        "api": "./src/api",
+        "app": "./src",
+        "modules": "./src/modules",
+      }
+    }]
+  ]
+}

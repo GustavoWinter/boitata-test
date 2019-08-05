@@ -1,0 +1,29 @@
+{
+  "name": "boitata-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:GustavoWinter/boitata-test.git",
+  "author": "Laniakea <grwgithub@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^3.1.0",
+    "file-loader": "^4.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-regenerator": "^6.26.0"
+  }
+}
