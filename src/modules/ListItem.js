@@ -51,7 +51,6 @@ export default class ListItem {
   voteUp() {
     let { upVotes, id } = this,
         element = document.querySelector(`#vote-${id}-span`)
-    element.classList.add('defaultText')
     upVotes += 1
     this.upVotes = upVotes
 
