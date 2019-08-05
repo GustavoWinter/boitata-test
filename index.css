@@ -91,6 +91,8 @@ body {
 .header-actions {
   grid-area: header-actions;
   place-self: center stretch;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 25px;
 }
 .header-user-actions {
   grid-area: header-user-actions;
@@ -124,16 +126,24 @@ body {
 
 .wrapper {
   display: grid;
-  grid-column-gap: 20px;
   grid-row-gap: 20px;
   grid-template-columns: [empty-space] 20% [start-column] 1fr [end-column] 1fr [empty-space] 20%;
   grid-template-rows: [header] 80px [post-body] 1fr [loading] 60px [footer] 80px;
   grid-template-areas:
-   ". header-actions header-actions ."
+  "border-top-start header-actions header-actions border-top-end"
    ". posts-container posts-container ."
    ". loading loading ."
    ". footer-infos footer-links .";
   color: #444;
+}
+
+.border-top-start {
+  grid-area: border-top-start;
+  border-bottom: 1px solid lightgrey;
+}
+.border-top-end {
+  grid-area: border-top-end;
+  border-bottom: 1px solid lightgrey;
 }
 
 .box {
