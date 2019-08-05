@@ -95,8 +95,8 @@ body {
 }
 
 .header-actions {
+  padding-top: 10px;
   grid-area: header-actions;
-  place-self: center stretch;
   border-bottom: 1px solid lightgrey;
   padding-bottom: 25px;
 }
