@@ -1,5 +1,6 @@
 import DOMHandler from 'modules/DOMHandler'
-import { normalizeDate } from 'modules/Helpers'
+import { normalizeDate } from 'modules/Helpers/time'
+import { getCategory } from 'modules/Helpers/categories'
 
 const append = DOMHandler.append,
       appendAll = DOMHandler.appendAll,
@@ -22,7 +23,10 @@ export default class ListItem {
     index: id,
     element = 'posts'
   }) {
-    this.category = category,
+    const { color, label } = getCategory(category)
+
+    this.category = label,
+    this.categoryColor = color,
     this.comments = comments,
     this.createdAt = createdAt,
     this.author = author,
@@ -127,6 +131,7 @@ export default class ListItem {
     spanBullet.classList.add('bullet')
 
     spanBallon.style.color = 'red'
+    spanCategory.style.backgroundColor = this.categoryColor
     spanBallon.className  = 'fa fa-comment ballon'
 
     const defaultStyles = [ 'post-info', 'defaultText']

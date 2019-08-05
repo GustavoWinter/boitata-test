@@ -1,5 +1,5 @@
 export const normalizeDate = timestamp =>
-handleNormalize(new Date(), new Date(timestamp))
+  handleNormalize(new Date(), new Date(timestamp))
 
 const buildDateStructure = arrayOfDates =>
   arrayOfDates.map(date => {

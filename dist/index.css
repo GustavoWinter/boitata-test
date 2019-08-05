@@ -257,6 +257,7 @@ body {
 }
 
 .post-info {
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,9 +265,10 @@ body {
 }
 
 .text-category {
+  color: #fff;
+  white-space:nowrap;
   border-radius: 25px;
   padding: 5px 10px;
-  background-color: red;
   font-size: 15px;
   text-align: center;
 }
