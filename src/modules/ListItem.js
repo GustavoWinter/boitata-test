@@ -95,12 +95,13 @@ export default class ListItem {
         spanTitle = createNode('span'),
         container = createNode('div')
 
-    spanSite.innerHTML = url
+    spanSite.innerHTML = url.toUpperCase()
     spanTitle.innerHTML = title
 
     const siteContainer = cloneToEncapsulate(container, spanSite, ['body-site-grid']),
           titleContainer = cloneToEncapsulate(container, spanTitle, ['body-title-grid'])
 
+    spanSite.classList.add('font-family-site')
     container.classList.add('body-post-grid', 'text')
 
     appendAll(container, [
