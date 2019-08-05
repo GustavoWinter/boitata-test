@@ -1,5 +1,4 @@
-const { links } = {
-  "links": [
+export const links = [
     {
       "meta": {
         "author": "Danil Ishutin",
@@ -79,4 +78,3 @@ const { links } = {
       "upvotes": 1
     }
   ]
-}

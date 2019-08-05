@@ -1,3 +1,6 @@
+export const normalizeDate = timestamp =>
+handleNormalize(new Date(), new Date(timestamp))
+
 const buildDateStructure = arrayOfDates =>
   arrayOfDates.map(date => {
     date.year = date.getFullYear()
@@ -25,10 +28,7 @@ const handleNormalize = (currentDate, postDate) => {
   return compareDates(current, post)
 }
 
-const normalizeDate = timestamp =>
-  handleNormalize(new Date(), new Date(timestamp))
-
 const wasPostedIn = (value, time) =>
   !!value
     ? `${value} ${time} ago`
-    : 'no Date available'
+    : 'no date available'

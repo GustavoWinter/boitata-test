@@ -1,4 +1,4 @@
-class DOMHandler {
+export default class DOMHandler {
   static createNode(element) {
     return document.createElement(element)
   }
@@ -14,11 +14,11 @@ class DOMHandler {
   static cloneToEncapsulate(original, element, cloneStyle = []) {
     const clone = original.cloneNode()
     clone.classList.add(...cloneStyle)
-    append(clone, element)
+    DOMHandler.append(clone, element)
     return clone
   }
 
   static cloneAndEncapsulateAll(container, elements = [], styles = []) {
-    return elements.map((element, index) => cloneToEncapsulate(container, element, styles[index]))
+    return elements.map((element, index) => DOMHandler.cloneToEncapsulate(container, element, styles[index]))
   }
 }

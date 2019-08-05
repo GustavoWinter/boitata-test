@@ -1,10 +1,13 @@
-const createNode = DOMHandler.createNode
-const append = DOMHandler.append
-const appendAll = DOMHandler.appendAll
-const cloneToEncapsulate = DOMHandler.cloneToEncapsulate
-const cloneAndEncapsulateAll = DOMHandler.cloneAndEncapsulateAll
+import DOMHandler from 'modules/DOMHandler'
+import { normalizeDate } from 'modules/Helpers'
 
-class ListItem {
+const append = DOMHandler.append,
+      appendAll = DOMHandler.appendAll,
+      createNode = DOMHandler.createNode,
+      cloneToEncapsulate = DOMHandler.cloneToEncapsulate,
+      cloneAndEncapsulateAll = DOMHandler.cloneAndEncapsulateAll
+
+export default class ListItem {
   constructor({ link: {
       category,
       comments,
