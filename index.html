@@ -11,7 +11,7 @@
   <body>
     <div class="wrapper">
       <div class="box header-actions">
-        <div class="simple-row space-centralized">
+        <div class="simple-row centralized-padding">
           <div class="hexagon">
             <div class="circle"></div>
             <span class="hexagon-label">UX</span>
@@ -28,13 +28,38 @@
           </div>
         </div>
       </div>
-      <!-- <div class="box header-user-actions">Header</div> -->
       <div class="box posts-container">
-        <ul id="posts"></ul>
+        <ul id="posts" class="no-padding"></ul>
       </div>
-      <div class="box loading">loading</div>
-      <div class="box footer-infos">footer-infos</div>
-      <div class="box footer-links">footer-links</div>
+      <div class="box loading">
+        <i class="fa fa-refresh refresh" style="color:black;color:red;font-size:35px;" aria-hidden="true"></i>
+        <span class="defaultText load-more">Load More</span>
+      </div>
+      <div class="box footer-infos">
+        <div class="hexagon">
+          <div class="circle"></div>
+          <span class="hexagon-label">UX</span>
+        </div>
+        <div class="footer-infos-container">
+          <h3 class="text-AB">The UX Library</h3>
+          <span class="text-grey">Community curated design content & discussion</span>
+        </div>
+      </div>
+      <div class="box footer-links">
+        <div class="footer-first-row">
+          <img src="./assets/logos/facebook.svg" alt="facebook" class="logo-facebook">
+          <span class="footer-color link-padding">Facebook</span>
+          <img src="./assets/logos/twitter.svg" alt="twiter" class="logo-twitter">
+          <span class="footer-color link-padding">Twitter</span>
+          <span class="footer-color link-margin">&bull;</span>
+          <span class="footer-color link-padding-right">About</span>
+          <span class="footer-color link-padding-right">Contact</span>
+          <span class="footer-color">Sign in</span>
+        </div>
+        <div class="footer-second-row sizeA">
+          <span class="footer-color">&copy; 2014 - The UX Library</span>
+        </div>
+      </div>
     </div>
 
   </body>

@@ -1,5 +1,4 @@
 body {
-  background-color: black;
   padding: 0;
   margin: 0;
 }
@@ -36,6 +35,11 @@ body {
   justify-content: space-around;
 }
 
+.centralized-padding {
+  align-items: center;
+  padding-left: 10px;
+}
+
 
 .padding-box {
   padding: 5px 0;
@@ -68,11 +72,20 @@ body {
 }
 
 .loading {
+  background-color: #F0F0F0 !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   grid-area: loading;
 }
 
 .posts-container {
   grid-area: posts-container;
+}
+
+.no-padding {
+  padding: 0;
 }
 
 .header-actions {
@@ -84,13 +97,21 @@ body {
 }
 
 .footer-links {
+  display: flex;
+  flex-direction: column;
   grid-area: footer-links;
 }
 .footer-infos {
   grid-area: footer-infos;
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  align-items: flex-start
+  flex-wrap: wrap;
 }
 
 .hexagon-label {
+  z-index: 1;
   position: absolute;
   font-size: 10px;
   top: 15%;
@@ -101,27 +122,23 @@ body {
   margin: 40px
 }
 
-
 .wrapper {
   display: grid;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   grid-template-columns: [empty-space] 20% [start-column] 1fr [end-column] 1fr [empty-space] 20%;
-  grid-template-rows: [header] 80px [post-body] 1fr [loading] 120px[footer] 120px;
+  grid-template-rows: [header] 80px [post-body] 1fr [loading] 60px [footer] 80px;
   grid-template-areas:
    ". header-actions header-actions ."
    ". posts-container posts-container ."
    ". loading loading ."
    ". footer-infos footer-links .";
-  background-color: #444; /*  remove it later */
   color: #444;
 }
 
 .box {
-  background-color: #fff; /*  remove it later */
   color: #fff;
   border-radius: 5px;
-  padding: 20px;
 }
 
 .header {
@@ -142,6 +159,7 @@ body {
 }
 
 .hexagon {
+  z-index: 2;
   margin-right: 20px;
   position: relative;
   width: 35px;
@@ -268,4 +286,74 @@ body {
 .ballon {
   color: red;
   padding-left: 15px;
+}
+
+.refresh {
+  margin-right: 20px;
+  transform: rotate(25deg); /* Equal to rotateZ(45deg) */
+}
+
+.load-more {
+  color: red;
+}
+
+.footer-color {
+  color: red;
+}
+
+.footer-first-row {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.footer-second-row {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.logo-facebook {
+  height: 15px;
+  width: 15px;
+}
+
+.logo-twitter {
+  height: 15px;
+  width: 15px;
+}
+
+.sizeA {
+  height: 15px;
+}
+
+.link-padding {
+  padding: 0 5px;
+}
+
+.link-margin {
+  margin: 0 10px 0 5px;
+}
+
+.link-padding-right {
+  padding-right: 8px;
+}
+
+.footer-infos-container {
+  padding-left: 5px;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+}
+
+.text-AB {
+  color: black;
+  margin: 0;
+}
+
+.text-grey {
+  color: grey;
+  font-size: 13px;
 }
