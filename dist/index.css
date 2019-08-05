@@ -315,7 +315,7 @@ body {
   color: red;
 }
 
-.footer-color {
+.text-orange {
   color: red;
 }
 
@@ -397,4 +397,9 @@ body {
 
 .auto-margin {
   margin-left: auto;
+}
+
+.references-text {
+  color: grey;
+  font-size: 10px;
 }
