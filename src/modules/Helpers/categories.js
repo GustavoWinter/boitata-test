@@ -18,10 +18,20 @@ export let categories = {
 }
 
 export const getCategory = category =>
-  !!categories[category]
-    ? categories[category]
+  !!categories[category] || hasLabel(category)
+    ? findLabel(category)
     : setNewCategory(category)
 
+// It'll prevent that the list has two categories with differentes colors
+const findLabel = category =>{
+  const existLabel = Object.keys(categories).find(key => categories[key].label === category)
+
+  if(!!existLabel) return categories[existLabel]
+  return categories[category]
+}
+
+// It'll create a new category with lable and color if that does not exists
+// on the categories hash
 const setNewCategory = category => {
   if(hasCategory(category)) return false
   const color = handleColor()
@@ -34,6 +44,7 @@ const setNewCategory = category => {
   return categories[category]
 }
 
+// Remove the underscore and set the first words letters to upper case
 const normalizeCategory = category =>
   category.split("_").map(
     word => word.charAt(0).toUpperCase() + word.slice(1)
@@ -44,10 +55,14 @@ const handleColor = (color = generateHexColors()) =>
     ? handleColor()
     : color
 
+// Generate a hexColor to belong the category
 const generateHexColors = () =>
   '#'+Math.floor(Math.random()*16777215).toString(16);
 
+
+// This methods will check if the category, color or label already exists
+const hasCategory = category => !!categories[category]
 const hasColor = color =>
   !!Object.keys(categories).filter( key => categories[key].color === color).length
-
-const hasCategory = category => !!categories[category]
+const hasLabel = category =>
+  !!Object.keys(categories).filter(key => categories[key].label === category).length
