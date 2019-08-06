@@ -32,7 +32,8 @@ export default class Posts {
         ListItem.showElement(post.id, condition)
       })
     }
+    ListItem.showEmptyResearch()
   }
 }
 
-export let  posts = new Posts()
+export let posts = new Posts()

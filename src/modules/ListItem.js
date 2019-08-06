@@ -37,6 +37,22 @@ export default class ListItem {
     this.initializeComponent()
   }
 
+  static showElement(id, value = true ) {
+    const display = (value ? 'flex' : 'none')
+    const li = document.getElementById(`list-item-${id}`)
+    li.style.display = display
+    value
+      ? li.setAttribute('data-item', 'show')
+      : li.setAttribute('data-item', 'hide')
+  }
+
+  static showEmptyResearch() {
+    const feedback = document.getElementById('no-post-found')
+    !document.querySelectorAll('[data-item="show"]').length
+      ? feedback.style.display = ''
+      : feedback.style.display = 'none'
+  }
+
   createUpVoteButton() {
     let button = createNode('button')
     button.id = `vote-${this.id}`
@@ -44,11 +60,6 @@ export default class ListItem {
     button.classList.add('vote-icon')
     button.addEventListener("click", () => this.voteUp())
     return button
-  }
-
-  static showElement(id, value = true ) {
-    const display = (value ? 'flex' : 'none')
-    document.getElementById(`list-item-${id}`).style.display = display
   }
 
   voteUp() {
@@ -63,6 +74,7 @@ export default class ListItem {
   initializeComponent() {
     let li = createNode('li')
     li.id = `list-item-${this.id}`
+    li.setAttribute('data-item', 'show')
     li.classList.add('simple-row', 'text', 'default-posts-margin')
 
     this.voteComponent(li)
