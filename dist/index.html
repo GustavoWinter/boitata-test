@@ -24,7 +24,7 @@
             <i class="fa fa-search search-bar-padding" style="color:grey;" aria-hidden="true"></i>
             <input class="search-bar" type="text" id="search" title="Posts search">
           </div>
-          <div class="simple-row user-header-container padding-box auto-margin">
+          <div id="add-post" class="simple-row user-header-container padding-box auto-margin">
             <div class="simple-row orange-box space-centralized">
               <div class="border-right">
                 <i class="fa fa-plus" style="font-size:20px;color:white"></i>
@@ -71,7 +71,30 @@
         </div>
       </div>
     </div>
+    <div id="modal-background" class='modal'>
+      <form id="modal-form" class="modal-form">
+        <h1>Create post</h1>
+        <div class="form-field form-field-row">
+          <label class="modal-label" for="">Author:</label>
+          <input id="modal-post-name" type="name" disabled value="Gustavo Winter">
+        </div>
+        <div class="form-field form-field-row">
+          <label class="modal-label" for="">Url:</label>
+          <input id="modal-post-url" type="name" value="">
+        </div>
+        <div class="form-field">
+          <label class="modal-label" for="">Category:</label>
+          <select id="list-category" name="categories">
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="modal-label" for="">Description</label>
+          <textarea id="modal-post-textarea" class="text-area-limit" name="name" rows="8" cols="80"></textarea>
+        </div>
+        <input type="submit" value="Submit!">
 
+      </form>
+    </div>
   </body>
   <script src="./bundle.js"></script>
 </html>

@@ -24,7 +24,6 @@ export default class ListItem {
     element = 'posts'
   }) {
     const { color, label } = getCategory(category)
-
     this.category = label,
     this.categoryColor = color,
     this.comments = comments,

@@ -412,3 +412,49 @@ body {
   color: grey;
   font-size: 10px;
 }
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-form {
+  z-index: 100;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  width: 40%;
+  height: 60%;
+}
+
+.form-field {
+  padding-left: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-label {
+  padding-right: 15px;
+  padding-bottom: 5px;
+}
+
+.text-area-limit {
+  width: 80%;
+}
