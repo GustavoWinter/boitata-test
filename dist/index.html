@@ -17,7 +17,7 @@
             <span class="hexagon-label">UX</span>
           </div>
           <div class="spacement"></div>
-          <div class="hamburguer-container">
+          <div id="filter-trigger" class="hamburguer-container">
             <i class="fa fa-bars hamburguer" style="font-size:15px;color:black"></i>
           </div>
           <div class="search-bar-container">
@@ -39,6 +39,12 @@
       <div class="border-top-end">
       </div>
       <div class="posts-container">
+        <div id="filters" class="filter-options display-none">
+          <button data-filter="reset">Reset</button>
+          <button data-filter="createdAt">Date</button>
+          <button data-filter="upVotes">Up Votes</button>
+          <button data-filter="comments">Comments</button>
+        </div>
         <div id="no-post-found" style="text-align:center;display:none;">
           <strong>No post found.</strong>
         </div>

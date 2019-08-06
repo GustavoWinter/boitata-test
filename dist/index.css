@@ -5,6 +5,10 @@ body {
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+}
+
 .font-family-site {
   font-family: 'Merriweather Sans', sans-serif;
   font-weight: 800;
@@ -17,6 +21,7 @@ body {
 }
 
 .hamburguer {
+  cursor: pointer;
   border-radius: 2px;
   padding: 5px;
   border: 1px solid grey;
@@ -454,4 +459,14 @@ body {
 
 .text-area-limit {
   width: 80%;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.filter-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

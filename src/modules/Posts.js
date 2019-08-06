@@ -7,11 +7,12 @@ export default class Posts {
 
   initialize({ links }) {
     this.posts = links.map((link, index) => new ListItem({ link, index }))
+    // Orignal Order will be use to reset the list after filters are applied
+    this.originalOrder = links
     document.getElementById('search').addEventListener("keyup", e => this.search(e))
   }
 
   static normalizeJson(link) {
-    console.log(link)
     const { author, title, url, category, comments, createdAt, upVotes } = link
     return {
       meta: {
@@ -28,10 +29,14 @@ export default class Posts {
 
   filterBy(filter = 'upVotes') {
     try {
+      const { posts, originalOrder } = this
       document.getElementById("posts").innerHTML = "";
-      const { posts } = this
-      const links = posts.sort((a, b) => a[filter] > b[filter] ? -1 : 1)
-      this.posts = links.map((link, index) => new ListItem({ link: Posts.normalizeJson(link), index: link.id }))
+      if(filter === 'reset') {
+        this.posts = originalOrder.map((link, index) => new ListItem({ link, index }))
+      } else {
+        const links = posts.sort((a, b) => a[filter] > b[filter] ? -1 : 1)
+        this.posts = links.map(link => new ListItem({ link: Posts.normalizeJson(link), index: link.id }))
+      }
     } catch (e) {
       console.log(e)
     }
