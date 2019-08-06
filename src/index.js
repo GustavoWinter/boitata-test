@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 
 import { posts } from 'modules/Posts'
-import { links as mockedLinks } from 'modules/links'
+import { links as mockedLinks } from 'app/mocks/links'
 import { handleModal, onSubmit as setModalSubmitAciton } from 'modules/Helpers/modal'
 import facebook from './assets/logos/facebook.svg'
 import twitter from './assets/logos/twitter.svg'
