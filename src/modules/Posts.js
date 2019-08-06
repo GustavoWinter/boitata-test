@@ -10,6 +10,33 @@ export default class Posts {
     document.getElementById('search').addEventListener("keyup", e => this.search(e))
   }
 
+  static normalizeJson(link) {
+    console.log(link)
+    const { author, title, url, category, comments, createdAt, upVotes } = link
+    return {
+      meta: {
+        author,
+        title,
+        url,
+      },
+      category,
+      comments,
+      created_at: createdAt,
+      upvotes: upVotes,
+    }
+  }
+
+  filterBy(filter = 'upVotes') {
+    try {
+      document.getElementById("posts").innerHTML = "";
+      const { posts } = this
+      const links = posts.sort((a, b) => a[filter] > b[filter] ? -1 : 1)
+      this.posts = links.map((link, index) => new ListItem({ link: Posts.normalizeJson(link), index: link.id }))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   setPost(link = null) {
     if(!!link) {
       const { posts } = this

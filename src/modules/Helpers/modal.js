@@ -42,6 +42,9 @@ const submitModalForm = e => {
   }
 
   posts.setPost(link)
+  document.getElementById('modal-background').style.display = 'none'
+  posts.filterBy()
+
 }
 
 const getFormValues = () => [
