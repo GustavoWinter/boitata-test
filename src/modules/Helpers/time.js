@@ -19,8 +19,7 @@ const compareDates = (current, post) => {
   if(current.day === post.day && current.hours != post.hours) return wasPostedIn(current.hours - post.hours, 'hours')
   if(current.hours === post.hours) return wasPostedIn(current.minutes - post.minutes, 'minutes')
   if(current.minutes === post.minutes) return wasPostedIn(0, 'minutes')
-
-  return wasPostedIn(false, null)
+  return wasPostedIn(-1, null)
 }
 
 const handleNormalize = (currentDate, postDate) => {
@@ -29,6 +28,6 @@ const handleNormalize = (currentDate, postDate) => {
 }
 
 const wasPostedIn = (value, time) =>
-  !!value
+  value >= 0
     ? `${value} ${time} ago`
     : 'no date available'
