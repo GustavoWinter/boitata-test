@@ -1,15 +1,15 @@
-.font-family-site {
-  font-family: 'Merriweather Sans', sans-serif;
-  font-weight: 800;
-  font-size: 13px;
-  color: lightgrey;
-}
-
 body {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 400;
   padding: 0;
   margin: 0;
+}
+
+.font-family-site {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: lightgrey;
 }
 
 .text {
@@ -48,7 +48,6 @@ body {
   align-items: center;
   padding-left: 10px;
 }
-
 
 .padding-box {
   padding: 5px 0;
@@ -341,6 +340,7 @@ body {
   justify-content: flex-end;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 15px;
 }
 
 .logo-facebook {
@@ -351,10 +351,6 @@ body {
 .logo-twitter {
   height: 15px;
   width: 15px;
-}
-
-.sizeA {
-  height: 15px;
 }
 
 .link-padding {
@@ -376,7 +372,7 @@ body {
   flex-wrap:wrap;
 }
 
-.text-AB {
+.ux-text {
   color: black;
   margin: 0;
 }
