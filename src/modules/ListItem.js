@@ -38,19 +38,18 @@ export default class ListItem {
   }
 
   static showElement(id, value = true ) {
-    const display = (value ? 'flex' : 'none')
     const li = document.getElementById(`list-item-${id}`)
-    li.style.display = display
     value
-      ? li.setAttribute('data-item', 'show')
-      : li.setAttribute('data-item', 'hide')
+      ? (li.setAttribute('data-item', 'show'), li.classList.remove('display-none'))
+      : (li.setAttribute('data-item', 'hide'), li.classList.add('display-none'))
   }
 
   static showEmptyResearch() {
     const feedback = document.getElementById('no-post-found')
+    console.log(feedback,  !document.querySelectorAll('[data-item="show"]').length)
     !document.querySelectorAll('[data-item="show"]').length
-      ? feedback.style.display = ''
-      : feedback.style.display = 'none'
+      ? feedback.classList.remove('display-none')
+      : feedback.classList.add('display-none')
   }
 
   createUpVoteButton() {
