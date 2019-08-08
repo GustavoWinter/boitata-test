@@ -88,26 +88,27 @@
     </div>
     <div id="modal-background" class='modal display-none'>
       <form id="modal-form" class="modal-form">
-        <h1>Create post</h1>
-        <div class="form-field form-field-row">
-          <label class="modal-label" for="">Author:</label>
-          <input id="modal-post-name" class="margin-bottom" type="name" disabled value="Danil Ishutin">
-        </div>
-        <div class="form-field form-field-row">
-          <label class="modal-label" class="margin-bottom" for="">Url:</label>
-          <input id="modal-post-url" type="url" value="">
-        </div>
-        <div class="form-field">
-          <label class="modal-label" for="">Category:</label>
-          <select id="list-category" class="margin-bottom" name="categories">
-          </select>
-        </div>
-        <div class="form-field">
-          <label class="modal-label" for="">Description</label>
-          <textarea id="modal-post-textarea" class="text-area-limit" name="name" rows="8" cols="80"></textarea>
-        </div>
-        <input class="margin-top-bottom" type="submit" value="Submit!">
-
+        <ul class="form-style-1">
+          <li>
+            <label>Full Name <span class="required">*</span></label>
+            <input id="modal-post-name" type="text" name="field1" disabled class="field-name" value="Danil Ishutin" />
+          <li>
+              <label>URL <span class="required">*</span></label>
+              <input id="modal-post-url" type="URL" name="field2" class="field-long" />
+          </li>
+          <li>
+            <label>Subject</label>
+            <select id="list-category" name="field3" class="field-select">
+            </select>
+          </li>
+          <li>
+              <label>Your Message <span class="required">*</span></label>
+              <textarea id="modal-post-textarea" name="field4" id="field5" class="field-long field-textarea"></textarea>
+          </li>
+          <li>
+            <input type="submit" value="Submit" />
+          </li>
+        </ul>
       </form>
     </div>
   </body>
