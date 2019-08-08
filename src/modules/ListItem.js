@@ -46,7 +46,6 @@ export default class ListItem {
 
   static showEmptyResearch() {
     const feedback = document.getElementById('no-post-found')
-    console.log(feedback,  !document.querySelectorAll('[data-item="show"]').length)
     !document.querySelectorAll('[data-item="show"]').length
       ? feedback.classList.remove('display-none')
       : feedback.classList.add('display-none')
@@ -123,7 +122,8 @@ export default class ListItem {
   }
 
   footerComponent() {
-    const { category, comments, createdAt, author } = this
+    const { category, comments, createdAt, author, id } = this
+    const postDate = normalizeDate(createdAt)
 
     let spanCategory = createNode('span'),
         spanName = createNode('span'),
@@ -140,6 +140,8 @@ export default class ListItem {
     spanComments.classList.add('info-text')
     spanEdit.classList.add('info-text')
     spanBullet.classList.add('bullet')
+
+    spanComments.setAttribute('data-comments', comments)
 
     spanBallon.style.color = 'red'
     spanCategory.style.backgroundColor = this.categoryColor
@@ -164,10 +166,12 @@ export default class ListItem {
     container.classList.add('body-footer-grid', 'text')
     spanCategory.innerHTML = category
     spanName.innerHTML = author
-    spanTime.innerHTML = normalizeDate(createdAt)
+    spanTime.innerHTML = postDate
     spanComments.innerHTML = `${comments} comments`
     spanEdit.innerHTML = 'edit'
     spanBullet.innerHTML = '&bull;'
+
+    spanTime.setAttribute(`data-time-${id}`, createdAt)
 
     append(containerComments, spanEdit)
     appendAll(container, [

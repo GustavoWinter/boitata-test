@@ -30,8 +30,7 @@ const findLabel = category =>{
   return categories[category]
 }
 
-// It'll create a new category with lable and color if that does not exists
-// on the categories hash
+// If in some point the API response have any new categories, it'll be dynamically created
 const setNewCategory = category => {
   if(hasCategory(category)) return false
   const color = handleColor()
@@ -50,15 +49,15 @@ const normalizeCategory = category =>
     word => word.charAt(0).toUpperCase() + word.slice(1)
   ).join(" ")
 
+// Check if category already have a color
 const handleColor = (color = generateHexColors()) =>
   hasColor(color)
     ? handleColor()
     : color
 
-// Generate a hexColor to belong the category
+// Generate a hexColor for the category
 const generateHexColors = () =>
   '#'+Math.floor(Math.random()*16777215).toString(16);
-
 
 // This methods will check if the category, color or label already exists
 const hasCategory = category => !!categories[category]
