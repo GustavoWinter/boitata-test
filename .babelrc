@@ -6,10 +6,12 @@
     "transform-regenerator",
     ["module-resolver", {
       "alias": {
+        "dist": "./dist",
         "assets": "./src/assets",
         "api": "./src/api",
         "app": "./src",
         "modules": "./src/modules",
+        "test": "./__test__",
       }
     }]
   ]
