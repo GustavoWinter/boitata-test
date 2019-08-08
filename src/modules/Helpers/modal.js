@@ -56,3 +56,10 @@ const getFormValues = () => [
   document.getElementById('list-category').value,
   document.getElementById('modal-post-textarea').value
 ]
+
+//Add event listener to the button
+export const setAddPostAction = () => {
+  const button = document.getElementById('add-post')
+  button.style.cursor = "pointer"
+  button.addEventListener('click', handleModal)
+}
