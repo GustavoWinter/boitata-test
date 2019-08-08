@@ -2,13 +2,14 @@ import ListItem from 'modules/ListItem'
 
 export default class Posts {
   constructor() {
-    this.posts = null
+    this.posts = []
+    this.originalOrder = []
   }
 
   initialize({ links }) {
     this.posts = links.map((link, index) => new ListItem({ link, index }))
     // Orignal Order will be use to reset the list after filters are applied
-    this.originalOrder = links
+    this.originalOrder = links.map((link, index) => ({ ...link, id: index }))
     document.getElementById('search').addEventListener("keyup", e => this.search(e))
   }
 
@@ -51,8 +52,12 @@ export default class Posts {
     }
   }
 
-  getPost() {
+  getPosts() {
     return this.posts
+  }
+
+  getOriginalOrder() {
+    return this.originalOrder
   }
 
   //this is search all fields that can inclued the search str
@@ -65,6 +70,16 @@ export default class Posts {
       })
     }
     ListItem.showEmptyResearch()
+  }
+
+  // it'll keep syncronize the vote number with the List Item class
+  syncUpVote({ id, upVotes }) {
+    const { posts, originalOrder } = this
+
+    let postIndex = posts.findIndex( post => post.id === id)
+    let originalPostIndex = originalOrder.findIndex( post => post.id === id)
+    this.posts[postIndex].upVotes = upVotes
+    this.originalOrder[originalPostIndex].upvotes = upVotes
   }
 }
 

@@ -1,4 +1,5 @@
 import DOMHandler from 'modules/DOMHandler'
+import { posts } from 'modules/Posts'
 import { normalizeDate } from 'modules/Helpers/time'
 import { getCategory } from 'modules/Helpers/categories'
 
@@ -70,8 +71,9 @@ export default class ListItem {
         element = document.querySelector(`#vote-${id}-span`)
     upVotes += 1
     this.upVotes = upVotes
-
     element.innerHTML = upVotes
+
+    posts.syncUpVote({ id, upVotes })
   }
 
   initializeComponent() {

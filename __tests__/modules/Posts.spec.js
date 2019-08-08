@@ -207,4 +207,46 @@ describe('Posts Class', () => {
       })
     })
   })
+
+  describe('#syncUpVote', () => {
+
+    test('it should sync the up vote in the orignal order and the current order', () => {
+      const id = 1,
+            upVotes = 123456
+      posts.syncUpVote({ id, upVotes})
+      const currentList = posts.posts,
+            originalOrder = posts.originalOrder
+
+      expect(currentList[id].upVotes).toBe(upVotes)
+      expect(originalOrder[id].upvotes).toBe(upVotes)
+    })
+
+    test('it should sync instead a filter is being applied or not', () => {
+      const id = 1,
+            upVotes = 123456
+
+      posts.filterBy('comments')
+      posts.syncUpVote({ id, upVotes })
+      const postFromCurrentList = posts.posts.find(post => post.id === id),
+            postInOriginalOrder = posts.originalOrder.find(post => post.id === id)
+
+      expect(postFromCurrentList.upVotes).toBe(upVotes)
+      expect(postInOriginalOrder.upvotes).toBe(upVotes)
+    })
+
+    test('it should persist after the filter was reset', () => {
+      const id = 1,
+            upVotes = 123456
+
+      posts.filterBy('comments')
+      posts.syncUpVote({ id, upVotes })
+      posts.filterBy('reset')
+
+      const postFromCurrentList = posts.posts.find(post => post.id === id),
+            postInOriginalOrder = posts.originalOrder.find(post => post.id === id)
+
+      expect(postFromCurrentList.upVotes).toBe(upVotes)
+      expect(postInOriginalOrder.upvotes).toBe(upVotes)
+    })
+  })
 })
