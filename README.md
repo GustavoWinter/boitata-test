@@ -13,7 +13,7 @@ A Single Page Application, com o intuito de consumir um endpoint e mostrar os Po
 
 **Node**
 
-Accesse o [link](https://nodejs.org/en/download/) para baixar a versão atual do node 10.16. 
+Accesse o [link](https://nodejs.org/en/download/) para baixar a versão atual do node 10.16.
 _Escolha a sua plataforma_
 
 **Yarn**
@@ -35,3 +35,4 @@ Abra seu browser na url: `http://localhost:8080/`
 #### Improvements
 
 - Adicionar Motion a interface
+- Edição de posts

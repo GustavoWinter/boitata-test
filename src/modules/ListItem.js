@@ -168,7 +168,7 @@ export default class ListItem {
     spanName.innerHTML = author
     spanTime.innerHTML = postDate
     spanComments.innerHTML = `${comments} comments`
-    spanEdit.innerHTML = 'edit'
+    if(author === 'Danil Ishutin') spanEdit.innerHTML = 'edit'
     spanBullet.innerHTML = '&bull;'
 
     spanTime.setAttribute(`data-time-${id}`, createdAt)
