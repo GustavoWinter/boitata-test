@@ -205,7 +205,9 @@ export default class ListItem {
 
   toString(){
     const { category, comments, createdAt, author, title, url, upVotes, } = this
-    return category.concat(` ${comments} ${author} ${title} ${url} ${upVotes}`).toLowerCase()
+    return category.concat(
+      `${comments} ${author} ${title} ${url} ${upVotes} ${new Date(createdAt)} ${normalizeDate(createdAt)}`
+    ).toLowerCase()
   }
 }
 
