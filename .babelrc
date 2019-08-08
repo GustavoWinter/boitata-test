@@ -11,7 +11,8 @@
         "api": "./src/api",
         "app": "./src",
         "modules": "./src/modules",
-        "test": "./__test__",
+        "test": "./__tests__",
+        "mocks": "./__mocks__"
       }
     }]
   ]

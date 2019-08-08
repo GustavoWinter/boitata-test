@@ -1,5 +1,5 @@
 import ListItem from 'modules/ListItem'
-import { links as mockedLinks } from 'test/Mocks/links'
+import { links as mockedLinks } from 'mocks//links'
 const html = require('fs').readFileSync('dist/index.html').toString();
 
 describe('ListItem Class', () => {

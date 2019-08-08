@@ -26,5 +26,11 @@
   },
   "devDependencies": {
     "babel-plugin-transform-regenerator": "^6.26.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/__tests__/setup/config.js"
+    ],
+    "modulePathIgnorePatterns": ["<rootDir>/__tests__/setup"]
   }
 }

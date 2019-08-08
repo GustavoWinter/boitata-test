@@ -1,6 +1,6 @@
 // import { posts } from 'modules/Posts'
 // import { normalizeDate } from 'modules/Helpers/time'
-// import { stubDate } from 'test/Mocks/time-helper';
+// import { stubDate } from 'mocks//time-helper';
 // const html = require('fs').readFileSync('dist/index.html').toString();
 //
 // // It'll generate a new date defined by from the time.
