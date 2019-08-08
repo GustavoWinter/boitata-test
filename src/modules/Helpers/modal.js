@@ -4,7 +4,8 @@ import { categories } from 'modules/Helpers/categories'
 
 export const handleModal = () => {
   let modal = document.getElementById('modal-background')
-  modal.addEventListener('click', (e) => hideModal(e.target.id, modal))
+  document.addEventListener('keydown', e => hideModal(e.keyCode, modal))
+  modal.addEventListener('click', e => hideModal(e.target.id, modal))
   modal.classList.remove('display-none')
   appendCategories()
 }
@@ -20,7 +21,7 @@ const appendCategories = () => {
 }
 
 const hideModal = (e, modal) =>
-  e === 'modal-background' && modal.classList.add('display-none')
+  (e === 'modal-background' || e === 27) && modal.classList.add('display-none')
 
 export const onSubmit = () =>
   document.getElementById('modal-form').addEventListener('submit', e => submitModalForm(e))
