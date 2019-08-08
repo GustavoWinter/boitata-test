@@ -249,4 +249,19 @@ describe('Posts Class', () => {
       expect(postInOriginalOrder.upvotes).toBe(upVotes)
     })
   })
+
+  describe('#setPost', () => {
+    beforeAll(() => {
+      posts.initialize({ links: mockedLinks })
+      posts.setPost(mockedLinks[0])
+    })
+
+    test('the size of posts should be increase', () => {
+      expect(posts.posts.length).toBe(mockedLinks.length + 1)
+    })
+
+    test('the size of posts should be increase', () => {
+      expect(posts.originalOrder.length).toBe(mockedLinks.length + 1)
+    })
+  })
 })

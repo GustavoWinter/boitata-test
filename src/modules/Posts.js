@@ -45,10 +45,14 @@ export default class Posts {
 
   setPost(link = null) {
     if(!!link) {
-      const { posts } = this
+      const { posts, originalOrder } = this
       const index = posts.length + 1
       const newListItem = new ListItem({ link, index })
       this.posts = posts.concat(newListItem)
+
+      //Save the new post in the originalOrder
+      link.id = index
+      originalOrder.push(link)
     }
   }
 
