@@ -18,16 +18,16 @@
           </div>
           <div class="spacement"></div>
           <div id="filter-trigger" class="hamburguer-container">
-            <i class="fa fa-bars hamburguer" style="font-size:15px;color:black"></i>
+            <i class="fa fa-bars hamburguer hamburguer-style"></i>
           </div>
           <div class="search-bar-container">
-            <i class="fa fa-search search-bar-padding" style="color:grey;" aria-hidden="true"></i>
+            <i class="fa fa-search search-bar-padding text-grey" aria-hidden="true"></i>
             <input class="search-bar" type="text" id="search" title="Posts search">
           </div>
           <div id="add-post" class="simple-row user-header-container padding-box auto-margin">
             <div class="simple-row orange-box space-centralized">
               <div class="border-right">
-                <i class="fa fa-plus" style="font-size:20px;color:white"></i>
+                <i class="fa fa-plus plus-icon-style"></i>
               </div>
               <span class='padding-test'>Add Post</span>
             </div>
@@ -45,13 +45,13 @@
           <button data-filter="upVotes">Up Votes</button>
           <button data-filter="comments">Comments</button>
         </div>
-        <div id="no-post-found" style="text-align:center;display:none;">
+        <div id="no-post-found" class="display-none centralize-text">
           <strong>No post found.</strong>
         </div>
         <ul id="posts" class="no-padding"></ul>
       </div>
       <div class="box loading">
-        <i class="fa fa-refresh refresh" style="color:black;color:red;font-size:35px;" aria-hidden="true"></i>
+        <i class="fa fa-refresh refresh refresh-icon-style" aria-hidden="true"></i>
         <span class="defaultText load-more test-font">Load more</span>
       </div>
       <div class="box footer-infos">
@@ -80,27 +80,27 @@
         </div>
       </div>
     </div>
-    <div id="modal-background" class='modal'>
+    <div id="modal-background" class='modal display-none'>
       <form id="modal-form" class="modal-form">
         <h1>Create post</h1>
         <div class="form-field form-field-row">
           <label class="modal-label" for="">Author:</label>
-          <input id="modal-post-name" type="name" disabled value="Gustavo Winter">
+          <input id="modal-post-name" class="margin-bottom" type="name" disabled value="Gustavo Winter">
         </div>
         <div class="form-field form-field-row">
-          <label class="modal-label" for="">Url:</label>
+          <label class="modal-label" class="margin-bottom" for="">Url:</label>
           <input id="modal-post-url" type="url" value="">
         </div>
         <div class="form-field">
           <label class="modal-label" for="">Category:</label>
-          <select id="list-category" name="categories">
+          <select id="list-category" class="margin-bottom" name="categories">
           </select>
         </div>
         <div class="form-field">
           <label class="modal-label" for="">Description</label>
           <textarea id="modal-post-textarea" class="text-area-limit" name="name" rows="8" cols="80"></textarea>
         </div>
-        <input type="submit" value="Submit!">
+        <input class="margin-top-bottom" type="submit" value="Submit!">
 
       </form>
     </div>
