@@ -10,14 +10,14 @@ import twitter from './assets/logos/twitter.svg'
 document.addEventListener('DOMContentLoaded', async () => {
   setImages()
 
-  await fetch('https://www.mocky.io/v2/5a6bc16631000078341b8b77')
+  fetch('https://www.mocky.io/v2/5a6bc16631000078341b8b77')
   .then((resp) => resp.json())
   .then(({ links }) => posts.initialize({ links }))
   .catch( error => posts.initialize({ links: mockedLinks }))
 
   setAddPostAction()
   setModalSubmitAciton()
-  await filtersInitiliaze()
+  filtersInitiliaze()
   filtersDisplay()
 })
 
