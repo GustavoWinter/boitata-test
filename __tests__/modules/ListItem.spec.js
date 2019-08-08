@@ -10,7 +10,7 @@ describe('ListItem Class', () => {
 
   describe('#Initialize', () => {
     test('should append the list item to the dom', () => {
-      expect(document.querySelectorAll('li').length).toBe(1)
+      expect(document.querySelectorAll('[data-post-li]').length).toBe(1)
     })
   })
 

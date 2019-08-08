@@ -78,6 +78,7 @@ export default class ListItem {
     let li = createNode('li')
     li.id = `list-item-${this.id}`
     li.setAttribute('data-item', 'show')
+    li.setAttribute('data-post-li', '')
     li.classList.add('simple-row', 'text', 'default-posts-margin')
 
     this.voteComponent(li)

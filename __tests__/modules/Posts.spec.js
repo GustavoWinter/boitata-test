@@ -10,7 +10,7 @@ describe('Posts Class', () => {
 
   describe('#Initialize', () => {
     test('should create all posts with list itens', () => {
-      expect(document.querySelectorAll('li').length).toBe(mockedLinks.length)
+      expect(document.querySelectorAll('[data-post-li]').length).toBe(mockedLinks.length)
     })
   })
 
@@ -54,14 +54,14 @@ describe('Posts Class', () => {
         posts.initialize({ links: [postA, postB]})
       })
       test('when no filters are selected keep the original order', () => {
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-0')
         expect(li[1].id).toBe('list-item-1')
       })
 
       test('the first will have less number of comments than the other', () => {
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         const firstPost = li[0].querySelector('[data-comments]').getAttribute('data-comments'),
               secondPost = li[1].querySelector('[data-comments]').getAttribute('data-comments')
@@ -70,7 +70,7 @@ describe('Posts Class', () => {
 
       test('after select the filter the order should change', () => {
         posts.filterBy('comments')
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-1')
         expect(li[1].id).toBe('list-item-0')
@@ -78,7 +78,7 @@ describe('Posts Class', () => {
 
       test('the first comment should have more comments than the others', () => {
         posts.filterBy('comments')
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         const highest = li[0].querySelector('[data-comments]').getAttribute('data-comments'),
               lowest = li[1].querySelector('[data-comments]').getAttribute('data-comments')
@@ -96,7 +96,7 @@ describe('Posts Class', () => {
         posts.initialize({ links: [postA, postB]})
       })
       test('when no filters are selected keep the original order', () => {
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-0')
         expect(li[1].id).toBe('list-item-1')
@@ -112,7 +112,7 @@ describe('Posts Class', () => {
 
       test('after select the filter the order should change', () => {
         posts.filterBy('upVotes')
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-1')
         expect(li[1].id).toBe('list-item-0')
@@ -143,14 +143,14 @@ describe('Posts Class', () => {
         posts.initialize({ links: [postFromDaysAgo, postFromCurrentDate]})
       })
       test('when no filters are selected keep the original order', () => {
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-0')
         expect(li[1].id).toBe('list-item-1')
       })
 
       test('the first will be the last post created', () => {
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         const daysAgo = li[0].querySelector('[data-time-0]').getAttribute('data-time-0'),
               currentDate = li[1].querySelector('[data-time-1]').getAttribute('data-time-1')
@@ -159,7 +159,7 @@ describe('Posts Class', () => {
 
       test('after select the filter the order should change', () => {
         posts.filterBy('comments')
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-1')
         expect(li[1].id).toBe('list-item-0')
@@ -167,7 +167,7 @@ describe('Posts Class', () => {
 
       test('the first comment should have more comments than the others', () => {
         posts.filterBy('comments')
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
         const daysAgo = document.querySelector('[data-time-0]').getAttribute('data-time-0'),
               currentDate = document.querySelector('[data-time-1]').getAttribute('data-time-1')
 
@@ -184,7 +184,7 @@ describe('Posts Class', () => {
         posts.initialize({ links: [postA, postB]})
       })
       test('the dom will start in the normal order', () => {
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-0')
         expect(li[1].id).toBe('list-item-1')
@@ -192,7 +192,7 @@ describe('Posts Class', () => {
 
       test('after apply the filter the list order will change', () => {
         posts.filterBy('comments')
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-1')
         expect(li[1].id).toBe('list-item-0')
@@ -200,7 +200,7 @@ describe('Posts Class', () => {
 
       test('the order should be reset', () => {
         posts.filterBy('reset')
-        const li = document.querySelectorAll('li')
+        const li = document.querySelectorAll('[data-post-li]')
 
         expect(li[0].id).toBe('list-item-0')
         expect(li[1].id).toBe('list-item-1')
