@@ -2,11 +2,16 @@ import DOMHandler from 'modules/DOMHandler'
 import { normalizeDate } from 'modules/Helpers/time'
 import { getCategory } from 'modules/Helpers/categories'
 
+import noPhoto from 'assets/users/no-photo.jpeg'
+import userProfile from 'assets/users/user-profile.jpg'
+
 const append = DOMHandler.append,
       appendAll = DOMHandler.appendAll,
       createNode = DOMHandler.createNode,
       cloneToEncapsulate = DOMHandler.cloneToEncapsulate,
       cloneAndEncapsulateAll = DOMHandler.cloneAndEncapsulateAll
+
+const defaultStyles = [ 'post-info', 'defaultText']
 
 export default class ListItem {
   constructor({ link: {
@@ -113,11 +118,7 @@ export default class ListItem {
     spanSite.classList.add('font-family-site')
     container.classList.add('body-post-grid', 'text')
 
-    appendAll(container, [
-      siteContainer,
-      titleContainer,
-      footer,
-    ])
+    appendAll(container, [ siteContainer, titleContainer, footer ])
     append(parent, container)
   }
 
@@ -125,6 +126,7 @@ export default class ListItem {
     const { category, comments, createdAt, author, id } = this
     const postDate = normalizeDate(createdAt)
 
+    // Create all elements
     let spanCategory = createNode('span'),
         spanName = createNode('span'),
         spanTime = createNode('span'),
@@ -132,32 +134,43 @@ export default class ListItem {
         spanEdit = createNode('span'),
         container = createNode('div'),
         spanBullet = createNode('span'),
-        spanBallon = createNode('i')
+        spanBallon = createNode('i'),
+        userImage = createNode('img')
 
+    // Add classes to the elements
     spanCategory.classList.add('text-category')
     spanName.classList.add('info-text')
     spanTime.classList.add('info-time-text')
     spanComments.classList.add('info-text')
     spanEdit.classList.add('info-text')
     spanBullet.classList.add('bullet')
+    spanBallon.classList.add('fa', 'fa-comment', 'ballon')
+    userImage.classList.add('post-user-image')
 
+    // Set src photo and id
+    userImage.src = userPhoto(author)
+    userImage.id = 'post-user-photo'
+
+    // Set data attribute for comments
     spanComments.setAttribute('data-comments', comments)
 
+    // Set styles
     spanBallon.style.color = 'red'
     spanCategory.style.backgroundColor = this.categoryColor
-    spanBallon.className  = 'fa fa-comment ballon'
 
-    const defaultStyles = [ 'post-info', 'defaultText']
     const [
       containerCategory,
+      containerUserImage,
       containerName,
       containerTime,
       containerComments,
     ] = cloneAndEncapsulateAll(
       container,
-      [ spanCategory, spanName, spanTime, spanComments ],
+      [ spanCategory, userImage, spanName, spanTime, spanComments ],
       [
         [ ...defaultStyles, 'border-padding' ],
+        [],
+        [ ...defaultStyles ],
         [ ...defaultStyles ],
         [ ...defaultStyles ],
       ]
@@ -176,6 +189,7 @@ export default class ListItem {
     append(containerComments, spanEdit)
     appendAll(container, [
       containerCategory,
+      containerUserImage,
       containerName,
       containerTime,
       spanBullet,
@@ -191,3 +205,9 @@ export default class ListItem {
     return category.concat(` ${comments} ${author} ${title} ${url} ${upVotes}`).toLowerCase()
   }
 }
+
+
+const userPhoto = author =>
+  author === 'Danil Ishutin'
+    ? userProfile
+    : noPhoto
