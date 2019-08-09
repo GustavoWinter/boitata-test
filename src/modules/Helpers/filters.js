@@ -19,10 +19,18 @@ export const filtersDisplay = () =>
   document.getElementById('filter-trigger').addEventListener('click', () => showElement())
 
 export const showElement = () => {
+  animateHamburguer()
   let filter = document.getElementById('filters')
-  filter.classList.contains('display-none')
-    ? filter.classList.remove('display-none')
-    : filter.classList.add('display-none')
+  filter.classList.contains('open-filters')
+    ? filter.classList.remove('open-filters')
+    : filter.classList.add('open-filters')
+}
+
+const animateHamburguer = () => {
+  const icon = document.getElementById('filter-icon')
+  icon.classList.contains('filter-icon-animation')
+    ? icon.classList.remove('filter-icon-animation')
+    : icon.classList.add('filter-icon-animation')
 }
 
 const applySelectedClass = button => {

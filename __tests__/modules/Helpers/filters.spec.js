@@ -4,17 +4,19 @@ const html = require('fs').readFileSync('dist/index.html').toString();
 
 describe('Filters', () => {
   describe('#Show Element', () => {
-    test('toggle class display-none - remove', () => {
-      document.documentElement.innerHTML = "<div id='filters' class='display-none'>Test</div>"
+    beforeAll(() => {
+      document.documentElement.innerHTML = html
+    })
+
+    test('toggle class open-filters - remove', () => {
       showElement()
-      const divTest = document.getElementById('filters').classList.contains('display-none')
+      const divTest = document.getElementById('filters').classList.contains('open-filters')
       expect(divTest).toBe(false)
     })
 
-    test('toggle class display-none - add', () => {
-      document.documentElement.innerHTML = "<div id='filters'>Test</div>"
+    test('toggle class open-filters - add', () => {
       showElement()
-      const divTest = document.getElementById('filters').classList.contains('display-none')
+      const divTest = document.getElementById('filters').classList.contains('open-filters')
       expect(divTest).toBe(true)
     })
   })

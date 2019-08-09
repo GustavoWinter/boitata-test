@@ -458,9 +458,16 @@ button {
 }
 
 .filter-options {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  transition: .2s;
+  height: 35px;
+  opacity: 1;
+  padding: 0 8px;
+  margin-bottom: 5px;
+}
+
+.open-filters {
+  height: 0px;
+  opacity: 0;
 }
 
 .hamburguer-style {
@@ -631,4 +638,17 @@ select{
   box-shadow: 0px 1px 0px 0px #888;
   background: #b34444;
   box-shadow: 1px 2px 4px 0px #666;
+}
+
+.fa-chevron-up:active {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.filter-icon-animation {
+  -webkit-transform: rotateZ(-180deg);
+  -ms-transform: rotateZ(-180deg);
+  transform: rotateZ(-180deg);
+  transition-duration: .7s;
 }
