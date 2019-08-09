@@ -9,7 +9,10 @@ export const initialize = () =>
 
 // Add the event listener and the filter type
 const setButtonAction = (button, filter) =>
-  button.addEventListener('click', () => posts.filterBy(filter))
+  button.addEventListener('click', () => {
+    applySelectedClass(button)
+    posts.filterBy(filter)
+  })
 
 // Add the event listerner to show the elements that will be used to select the filter
 export const filtersDisplay = () =>
@@ -20,4 +23,9 @@ export const showElement = () => {
   filter.classList.contains('display-none')
     ? filter.classList.remove('display-none')
     : filter.classList.add('display-none')
+}
+
+const applySelectedClass = button => {
+  document.querySelectorAll('.selected').forEach(klass => klass.classList.remove('selected'))
+  button.classList.add('selected')
 }
