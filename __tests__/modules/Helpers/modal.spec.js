@@ -9,19 +9,19 @@ describe('Modal', () => {
 
   describe('display behavior', () => {
     test('should initiliaze with display none', () => {
-      const value = document.getElementById('modal-background').classList.contains('display-none')
+      const value = document.getElementById('modal-background').classList.contains('display-none', 'modal-out')
       expect(value).toBe(true)
     })
 
     test('after click it should me removed', () => {
       handleModal()
-      const value = document.getElementById('modal-background').classList.contains('display-none')
+      const value = document.getElementById('modal-background').classList.contains('display-none', 'modal-out')
       expect(value).toBe(false)
     })
   })
 
   /* Click is not working in jest enviroment*/
-  
+
   // describe('#onSubmit', () => {
   //   beforeEach(() => {
   //     document.getElementById('modal-post-name').value = 'Test name'

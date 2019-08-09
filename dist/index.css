@@ -441,6 +441,18 @@ button {
   background-color: rgba(0,0,0,0.4);
 }
 
+.modal-in {
+  animation-name: modal-in;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+}
+
+.modal-out {
+  animation-name: modal-out;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+}
+
 .modal-form {
   z-index: 100;
   border-radius: 5px;
@@ -651,4 +663,22 @@ select{
   -ms-transform: rotateZ(-180deg);
   transform: rotateZ(-180deg);
   transition-duration: .7s;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

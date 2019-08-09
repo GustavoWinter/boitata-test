@@ -7,6 +7,8 @@ export const handleModal = () => {
   document.addEventListener('keydown', e => hideModal(e.keyCode, modal))
   modal.addEventListener('click', e => hideModal(e.target.id, modal))
   modal.classList.remove('display-none')
+  modal.classList.remove('modal-out')
+  modal.classList.add('modal-in')
   appendCategories()
 }
 
@@ -20,9 +22,13 @@ const appendCategories = () => {
   })
 }
 
-const hideModal = (e, modal) =>
-  (e === 'modal-background' || e === 27) && modal.classList.add('display-none')
-
+const hideModal = (e, modal) =>{
+  if(e === 'modal-background' || e === 27) {
+    modal.classList.remove('modal-in')
+    modal.classList.add('modal-out')
+    setTimeout(async () => modal.classList.add('display-none'), 250)
+  }
+}
 export const onSubmit = () =>
   document.getElementById('modal-form').addEventListener('submit', e => submitModalForm(e))
 
@@ -45,9 +51,10 @@ const submitModalForm = e => {
   }
 
   posts.setPost(link)
-  document.getElementById('modal-background').classList.add('display-none')
-  posts.filterBy()
-
+  const modal = document.getElementById('modal-background')
+  modal.classList.remove('modal-in')
+  modal.classList.add('modal-out')
+  setTimeout(async () => modal.classList.add('display-none'), 250)
 }
 
 // Return the value of forms in array format
